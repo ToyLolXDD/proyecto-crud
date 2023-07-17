@@ -1,0 +1,26 @@
+1) 1.	Cree la consulta para seleccionar solo los productos en una compra 
+de valor igual o mayor que 100. Los resultados deben ordenarse por 
+precio en orden descendente. Genere exactamente las columnas 
+NAME(PRODUCT_CATEGORY), PRODUCT_ID, NAME y ORDER_ID.  
+
+---------------------------------------------------------
+select							|  
+product_category.name as NAME(PRODUCT_CATEGORY),	|
+product_id, 						|	
+name,							|
+order_product.order_id					|
+from product where price >= 100 order by price desc;	|
+---------------------------------------------------------
+
+2) 2.	Cree una consulta que muestre todos los clientes que se 
+registraron el año pasado y que hayan comprado de las categorías 1,3 y 5.
+
+---------------------------------------------------------
+select * from customer c 				|
+join purchase_order po ON c.customer_id = po.customer_id|
+join product pt ON po.product_id = pt.product_id	|
+where register_date = YEAR(current_date()) - 1 		|	
+and pt.product_category_id  in(1,3,5);			|
+---------------------------------------------------------
+
+3)
