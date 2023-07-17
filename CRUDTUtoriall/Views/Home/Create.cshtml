@@ -26,7 +26,6 @@
     </div>
         @{
             var errorMessage = TempData["ErrorMessage"] as string;
-            var successMessage = TempData["SuccessMessage"] as string;
         }
 
         @if (!string.IsNullOrEmpty(errorMessage))
@@ -36,12 +35,6 @@
             </div>
         }
 
-        @if (!string.IsNullOrEmpty(successMessage))
-        {
-            <div class="alert alert-success message-box">
-                @successMessage
-            </div>
-        }
 
         <div class="form-group">
             @Html.LabelFor(model => model.StudentName, htmlAttributes: new { @class = "control-label col-md-2" })
